@@ -1,18 +1,16 @@
 """Print out all the melons in our inventory."""
 
 
-from melons import melon_names, melon_seedlessness, melon_prices
+from melons import melon_types
 
 
-def print_melon(name, seedless, price):
+def print_melons(types):
     """Print each melon with corresponding attribute information."""
+    # iterate over passed in dictionary grabbing the key(melon) and the value (dictionary of melon attributes)
+    for melon, attributes in types.items():
+        print(melon.upper())
+        # iterate over the dictionary associated with each melon key printing each key value pair
+        for attribute, value in attributes.items():
+            print(f'{attribute}: {value}')
 
-    have_or_have_not = 'have'
-    if seedless:
-        have_or_have_not = 'do not have'
-
-    print(f'{name}s {have_or_have_not} seeds and are ${price:.2f}')
-
-
-for i in melon_names:
-    print_melon(melon_names[i], melon_seedlessness[i], melon_prices[i])
+print_melons(melon_types)
